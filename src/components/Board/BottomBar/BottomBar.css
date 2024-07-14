@@ -1,0 +1,48 @@
+@import url('../../../utilities/variables.css');
+
+
+.bottom-bar {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  height: 64px;
+  margin-top: 20px;
+}
+
+.score {
+  align-items: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.score -amount {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+}
+
+.score.left {
+  background: var(--color-cyan-lighter);
+}
+
+.score.center {
+  background: var(--color-gray);
+}
+
+.score.right {
+  background: var(--color-yellow);
+}
+
+@media screen and (min-width: 768px) {
+  .score {
+    border-radius: 15px;
+    height: 72px;
+  }
+
+  .score-amount {
+    font-size: var(--font-size-medium);
+    letter-spacing: var(--font-kerning-medium);
+  }
+}

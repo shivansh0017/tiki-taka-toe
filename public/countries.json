@@ -1,0 +1,244 @@
+{
+    "countries": [
+        {
+            "id": 1,
+            "name": "England",
+            "iso": "ENG"
+        },
+        {
+            "id": 2,
+            "name": "Spain",
+            "iso": "ESP"
+        },
+        {
+            "id": 3,
+            "name": "France",
+            "iso": "FRA"
+        },
+        {
+            "id": 4,
+            "name": "Ireland",
+            "iso": "IRL"
+        },
+        {
+            "id": 5,
+            "name": "Portugal",
+            "iso": "POR"
+        },
+        {
+            "id": 6,
+            "name": "Brazil",
+            "iso": "BRA"
+        },
+        {
+            "id": 7,
+            "name": "Scotland",
+            "iso": "SCT"
+        },
+        {
+            "id": 8,
+            "name": "Netherlands",
+            "iso": "NED"
+        },
+        {
+            "id": 9,
+            "name": "Wales",
+            "iso": "WAL"
+        },
+        {
+            "id": 10,
+            "name": "Germany",
+            "iso": "GER"
+        },
+        {
+            "id": 11,
+            "name": "Argentina",
+            "iso": "ARG"
+        },
+        {
+            "id": 12,
+            "name": "Italy",
+            "iso": "ITA"
+        },
+        {
+            "id": 13,
+            "name": "Belgium",
+            "iso": "BEL"
+        },
+        {
+            "id": 14,
+            "name": "Serbia",
+            "iso": "SRB"
+        },
+        {
+            "id": 15,
+            "name": "Croatia",
+            "iso": "CRO"
+        },
+        {
+            "id": 16,
+            "name": "Uruguay",
+            "iso": "URU"
+        },
+        {
+            "id": 17,
+            "name": "Denmark",
+            "iso": "DEN"
+        },
+        {
+            "id": 18,
+            "name": "Senegal",
+            "iso": "SEN"
+        },
+        {
+            "id": 19,
+            "name": "Paraguay",
+            "iso": "PRY"
+        },
+        {
+            "id": 20,
+            "name": "Colombia",
+            "iso": "COL"
+        },
+        {
+            "id": 21,
+            "name": "Chile",
+            "iso": "CHL"
+        },
+        {
+            "id": 22,
+            "name": "Cameroon",
+            "iso": "CMR"
+        },
+        {
+            "id": 23,
+            "name": "Mexico",
+            "iso": "MEX"
+        },
+        {
+            "id": 24,
+            "name": "Romania",
+            "iso": "ROU"
+        },
+        {
+            "id": 25,
+            "name": "Nigeria",
+            "iso": "NGA"
+        },
+        {
+            "id": 26,
+            "name": "Morocco",
+            "iso": "MAR"
+        },
+        {
+            "id": 27,
+            "name": "Sweden",
+            "iso": "SWE"
+        },
+        {
+            "id": 28,
+            "name": "Switzerland",
+            "iso": "SUI"
+        },
+        {
+            "id": 29,
+            "name": "Ghana",
+            "iso": "GHA"
+        },
+        {
+            "id": 30,
+            "name": "Poland",
+            "iso": "POL"
+        },
+        {
+            "id": 31,
+            "name": "Slovenia",
+            "iso": "SVN"
+        },
+        {
+            "id": 32,
+            "name": "Albania",
+            "iso": "ALB"
+        },
+        {
+            "id": 33,
+            "name": "Austria",
+            "iso": "AUT"
+        },
+        {
+            "id": 34,
+            "name": "Turkey",
+            "iso": "TUR"
+        },
+        {
+            "id": 35,
+            "name": "United States",
+            "iso": "USA"
+        },
+        {
+            "id": 36,
+            "name": "Czech Republic",
+            "iso": "CZE"
+        },
+        {
+            "id": 37,
+            "name": "Norway",
+            "iso": "NOR"
+        },
+        {
+            "id": 38,
+            "name": "Bosnia and Herzegovina",
+            "iso": "BIH"
+        },
+        {
+            "id": 39,
+            "name": "Greece",
+            "iso": "GRE"
+        },
+        {
+            "id": 40,
+            "name": "Northern Ireland",
+            "iso": "NIR"
+        },
+        {
+            "id": 41,
+            "name": "Ivory Coast",
+            "iso": "CIV"
+        },
+        {
+            "id": 42,
+            "name": "Ecuador",
+            "iso": "ECU"
+        },
+        {
+            "id": 43,
+            "name": "Peru",
+            "iso": "PER"
+        },
+        {
+            "id": 44,
+            "name": "Venezuela",
+            "iso": "VEN"
+        },
+        {
+            "id": 45,
+            "name": "Bolivia",
+            "iso": "BOL"
+        },
+        {
+            "id": 46,
+            "name": "Algeria",
+            "iso": "ALG"
+        },
+        {
+            "id": 47,
+            "name": "Mali",
+            "iso": "MLI"
+        },
+        {
+            "id": 48,
+            "name": "Curacao",
+            "iso": "CUW"
+        }
+    ]
+}

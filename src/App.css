@@ -1,0 +1,51 @@
+@import url(./utilities/variables.css);
+
+* {
+	box-sizing: border-box; /* Every element in this project has a border-box, i.e. width =  width+border+padding */
+	transition: ease all .33s; /* Every css element will have a .33s transition when it changes state */
+  }
+  
+  body {
+	background: var(--color-cyan-dark);
+	font-family: var(--font-family);
+	font-size: var(--font-size-body);
+	font-weight: var(--font-weight-body);
+	letter-spacing: var(--font-kerning-body);
+	overflow: hidden; /* hides any overflowing content */
+	user-select: none; /* prevents text from being highlighted/selected */
+	-webkit-tap-highlight-color: transparent;
+  }
+  
+  html, body, #root {
+	height: 100%;
+  }
+  
+  #root {
+	display: flex;
+	justify-content: center;
+  }
+  
+  .App {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	max-width: 700px;
+	min-width: 700px;
+  }
+  
+  img {
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+  }
+  
+  button{
+	cursor: pointer;
+  }
+  
+  @media screen and (min-width: 768px) {
+	.App {
+	  min-width: 460px;
+	}
+  }

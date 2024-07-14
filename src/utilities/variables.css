@@ -1,0 +1,39 @@
+:root {
+    --color-cyan-lightest: #65E9E4;
+    --color-cyan-lighter: #31C3BD;
+    --color-cyan-light: #118C87;
+    --color-cyan: #1F3641;
+    --color-cyan-dark: #1A2A33;
+    --color-cyan-darkest: #10212A;
+    --color-yellow-light: #FFC860;
+    --color-yellow: #F2B137;
+    --color-yellow-dark: #CC8B13;
+    --color-white: #DBE8ED;
+    --color-gray: #A8BFC9;
+    --color-gray-dark: #6B8997;
+    --color-gray-darkest: #3c4b52;
+
+    --font-family: "Outfit", sans-serif;
+
+    --font-size-body: 14px;
+    --font-size-large: 40px;
+    --font-size-medium: 24px;
+    --font-size-small: 20px;
+    --font-size-extrasmall: 16px;
+
+    --font-kerning-body: 0.8px;
+    --font-kerning-large: 2.5px;
+    --font-kerning-medium: 1.5px;
+    --font-kerning-small: 1.25px;
+    --font-kerning-extrasmall: 1px;
+
+    --font-weight-body: 500;
+    --font-weight-large: 700;
+    --font-weight-medium: 700;
+    --font-weight-small: 700;
+    --font-weight-extrasmall: 700;
+
+    --svg-height-size-normal: 50px;
+    --svg-height-size-small: 40px;
+
+}
