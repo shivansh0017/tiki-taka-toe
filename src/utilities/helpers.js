@@ -1,8 +1,3 @@
-// This file is used to store 2 functions. 
-// 1. areMovesLeft
-// 2. getBoardResult
-// These 2 functions are used in the game logic to check if the game is over and if the current player has won.
-
 import {
   BOARD_RESULTS,
   BOARD_RESULT_MODES

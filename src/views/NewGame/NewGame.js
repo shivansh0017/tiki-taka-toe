@@ -6,9 +6,7 @@ import './NewGame.css'
 function NewGame() {
     return (
         <div className="new-game">
-            <h1>TIKI TAKA TOE</h1>
-            {/* {(modalState !== MODAL_STATES.NONE) ? <Modal/> : <></>} */}
-            <img src={XOLogo} alt="Tic-Tac-Toe logo" className="xologo" /> {/* Used to select difficulty of AI */}
+            <img src={XOLogo} alt="Tic-Tac-Toe logo" className="xologo" />
             <PlayerSelect />
             <StartGameSelect />
         </div>

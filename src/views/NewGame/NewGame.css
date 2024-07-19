@@ -164,14 +164,14 @@
     background: var(--color-gray);
 }
 
-.opponent-selector {
+.start-selector {
     color: var(--color-cyan-dark);
     display: flex;
     flex-direction: column;
     margin-top: 40px;
 }
 
-.opponent-selector button {
+.start-selector button {
     border-radius: 15px;
     border-style: none;
     font-family: var(--font-family);
@@ -198,7 +198,7 @@
         font-size: var(--font-size-extrasmall);
     }
 
-    .opponent-selector button {
+    .start-selector button {
         font-size: var(--font-size-small);
         height: 67px;
     }

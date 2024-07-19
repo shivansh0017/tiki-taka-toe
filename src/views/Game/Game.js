@@ -18,22 +18,7 @@ function Game() {
   const selectedMark = useSelector((state) => state.game.selectedMark);
   const status = useSelector((state) => state.game.status);
   const dispatch = useDispatch();
-
-  /*
-  This `useEffect` hook is used to handle the game logic. 
-  It listens for changes in the `status` state variable.
-
-  When the `status` is `STATUS.INITIAL_GAME_LOAD`, it dispatches the `setFirstTurn` action.
-  This action sets the first player's turn (X) and initializes the game state.
-
-  When the `status` is `STATUS.CPU_TURN`, the CPU player's turn is triggered.
-  The CPU player's mark is determined based on the current player's mark.
-  The `moveWithDifficulty` function is called to determine the CPU's next move based on the current board state and difficulty level.
-  The `addMarkToBoard` action is then dispatched to update the board state with the CPU's move.
-
-  The `useEffect` hook has dependencies on `board`, `difficulty`, `dispatch`, `selectedMark`, and `status`.
-  This means that the effect will re-run whenever any of these values change.
-  */
+  
   useEffect(() => {
     switch (status) {
       case STATUS.INITIAL_GAME_LOAD: {

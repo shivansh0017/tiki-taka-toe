@@ -1,8 +1,3 @@
-// This file contains constants used in the project 
-//contains PAGES, MARKS, OPPONENTS, PLAYERS, STATUS, BOARD_RESULTS, BOARD_RESULT_MODES, MODAL_STATES, DIFFICULTIES
-
-
-
 export const TEAMS = {
   AJA: require('../assets/Teams/AJA.svg').default,
   AMO: require('../assets/Teams/AMO.svg').default,
@@ -38,10 +33,6 @@ export const PAGES = {
 export const MARKS = {
   X: 'X',
   O: 'O'
-}
-
-export const OPPONENTS = {
-  HUMAN: 'HUMAN'
 }
 
 export const PLAYERS = {

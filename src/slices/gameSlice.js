@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 
 import {
@@ -6,53 +7,58 @@ import {
   BOARD_RESULT_MODES,
   MARKS,
   MODAL_STATES,
-  STATUS
+  STATUS,
+  PAGES
 } from "../utilities/constants";
 import { getBoardResult } from "../utilities/helpers";
 
 const initialState = {
-  columnCategories: [...Array(3).fill(' ')], // added
-  rowCategories: [...Array(3).fill(' ')], // added
+  columnCategories: [...Array(3).fill(' ')],
+  rowCategories: [...Array(3).fill(' ')],
+  loading: false,
+  error: '', 
+  randomCategoriesIndex: [...Array(6).fill(0)],
   board: [...Array(9).fill(' ')],
+  page: PAGES.NEW_GAME,
   currentTurn: MARKS.X,
   modalState: MODAL_STATES.NONE,
   selectedMark: MARKS.X,
   status: STATUS.INITIAL_GAME_LOAD,
-  opponent: null,
   winningLine: [],
   winsX: 0,
   winsO: 0,
   ties: 0
 }
 
-
-const response = await fetch('/teams.json');
-if (!response.ok) {
-  throw new Error(`HTTP error! status: ${response.status}`);
-}
-const teamsData = await response.json();
-
+export const fetchTeams = createAsyncThunk('teams/fetchTeams', async () => {
+  try {
+    const response = await axios.get('/teams.json');
+    if (response.status !== 200) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = response.data;
+    if (!data || !data.teams) {
+      throw new Error('No teams found in the response.');
+    }
+    const teams = data.teams;
+    let randomCategoriesIndex = new Set();
+    while (randomCategoriesIndex.size < 6) {
+      randomCategoriesIndex.add(Math.floor(Math.random() * teams.length));
+    }
+    const rowCategories1 = Array.from({ length: 3 }, (_, i) => teams[[...randomCategoriesIndex][i]].short_code);
+    const columnCategories1 = Array.from({ length: 3 }, (_, i) => teams[[...randomCategoriesIndex][i + 3]].short_code);
+    return { rowCategories1, columnCategories1 };
+  } catch (error) {
+    console.error('Error fetching teams:', error);
+    throw error;
+  }
+});
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
     reset: () => initialState,
-    setRandomCategories: (state) => {
-      let randomCategoriesIndex = new Set()
-      while (randomCategoriesIndex.size < 6) {
-        randomCategoriesIndex.add(Math.floor(Math.random() * 25))
-      }
-      const uniqueNumbers = [...randomCategoriesIndex];
-      for (let i = 0; i < 3; i++) {
-        if (teamsData && teamsData.teams) {
-          state.rowCategories[i] = teamsData.teams[uniqueNumbers[i]].short_code;
-          state.columnCategories[i] = teamsData.teams[uniqueNumbers[i + 3]].short_code;
-        } else {
-          console.error('Error accessing teamsData or teams array or 3rd object');
-        }
-      }
-    },
     addMarkToBoard: (state, action) => {
       let index = action.payload;
       if (state.board[index] !== ' ') return;  // move is invalid
@@ -90,9 +96,6 @@ export const gameSlice = createSlice({
       // the game isn't over, change the turn
       state.currentTurn = state.currentTurn === MARKS.X ? MARKS.O : MARKS.X;
     },
-    selectOpponent: (state, action) => {
-      state.opponent = action.payload
-    },
     resetRecord: (state) => {
       state.ties = 0;
       state.winsO = 0;
@@ -128,16 +131,31 @@ export const gameSlice = createSlice({
         state.selectedMark = state.selectedMark === MARKS.X ? MARKS.O : MARKS.X;
       }
     }
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchTeams.pending, (state) => {
+      state.loading = true
+    })
+    builder.addCase(fetchTeams.fulfilled, (state, action) => {
+      state.page = PAGES.GAME;
+      state.loading = false
+      state.rowCategories = action.payload.rowCategories1
+      state.columnCategories = action.payload.columnCategories1
+      state.error = ''
+    })
+    builder.addCase(fetchTeams.rejected, (state, action) => {
+      state.loading = false
+      state.teams = []
+      state.error = action.error.message
+    })
   }
 });
 
 export const {
   reset,
   addMarkToBoard,
-  setRandomCategories,
   resetRecord,
   restartGame,
-  selectOpponent,
   setFirstTurn,
   togglePause,
   toggleSettings,

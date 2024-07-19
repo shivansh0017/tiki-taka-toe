@@ -7,7 +7,7 @@ import {
   restartGame,
   reset,
   togglePause,
-  setRandomCategories
+  fetchTeams
 } from '../../slices/gameSlice';
 
 import { MODAL_STATES, PAGES } from '../../utilities/constants';
@@ -16,7 +16,7 @@ import './Modal.css';
 
 function Modal() {
   const modalState = useSelector((state) => state.game.modalState);
-  const page = useSelector((state) => state.app.page);
+  const page = useSelector((state) => state.game.page);
   const dispatch = useDispatch();
 
   const handleCancel = () => {
@@ -25,7 +25,7 @@ function Modal() {
 
   const handleRestartGame = () => {
     dispatch(restartGame());
-    dispatch(setRandomCategories())
+    dispatch(fetchTeams());
   }
 
   const handleQuit = () => {
@@ -44,9 +44,7 @@ function Modal() {
             <ModalBottom />
             <div className="modal-choices">
               <button onClick={() => {
-                setTimeout(() => {
-                  handleRestartGame();
-                }, 1000); // Add a delay of 1 seconds
+                handleRestartGame();
               }} id="modal-restart">YES, RESTART</button>
               <button onClick={handleTogglePause} id="modal-cancel">NO, CANCEL</button>
             </div>
@@ -61,9 +59,7 @@ function Modal() {
             <div className="modal-choices">
               <button onClick={handleQuit} id="modal-quit">QUIT</button>
               <button onClick={() => {
-                setTimeout(() => {
                   handleRestartGame();
-                }, 500); // Add a delay of 0.5 seconds
               }} id="modal-nextround">NEXT ROUND</button>
             </div>
           </>

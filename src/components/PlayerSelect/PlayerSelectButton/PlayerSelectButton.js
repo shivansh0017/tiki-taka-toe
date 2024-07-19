@@ -2,8 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { toggleSelectedMark } from '../../../slices/gameSlice';
 
-// This function gets a 'value' mark that tells whether the selected button in PlayerSelect.js is X or O. This value is sent to PlayerSelectButton.js. The selectedMark is used to determine the initial state of the Mark property. If the selectedMark is same as the value received from the PlayerSelect.js, then the iconActive is displayed. Otherwise, the normal icon is displayed. So for eg. the button selected is X and the selectedMark is X, then the iconActive is displayed. The button selected is O and the selectedMark is O, then the iconActive is displayed. If the selectedMark and mark passed are different, the state is updated using the dispatch function, and the appropriate mark is set. The active icon is then re rendered and displayed.
-
 function PlayerSelectButton({ icon, iconActive, mark }) {
   const dispatch = useDispatch();
 
