@@ -23,8 +23,6 @@ function Board() {
     if (event.target.className !== 'cell' && event.target.parentElement.className !== 'board') return;  // didn't click on cell
     let index = Number(event.target.getAttribute('index'));
     dispatch(addMarkToBoard(index));
-    console.log("rowCategories:" + rowCategories)
-    console.log("columnCategories:" + columnCategories)
   }
 
   const handleSearchPlayer = () => {
