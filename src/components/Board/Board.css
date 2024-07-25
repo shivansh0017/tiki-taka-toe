@@ -46,7 +46,7 @@
   grid-column: 1/2;
   background-color: var(--color-purple);
   border-top-left-radius: 15px;
-  padding-top: 10px;
+  padding-top: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
