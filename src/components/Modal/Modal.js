@@ -7,7 +7,8 @@ import {
   restartGame,
   reset,
   togglePause,
-  fetchTeams
+  fetchTeams,
+  toggleSearchPlayer
 } from '../../slices/gameSlice';
 
 import { MODAL_STATES, PAGES } from '../../utilities/constants';
@@ -19,7 +20,7 @@ function Modal() {
   const page = useSelector((state) => state.game.page);
   const dispatch = useDispatch();
 
-  const handleCancel = () => {
+  const handleGameCancel = () => {
     dispatch(toggleSettings());
   }
 
@@ -35,7 +36,7 @@ function Modal() {
   const handleTogglePause = () => {
     dispatch(togglePause());
   }
-
+  
   const selectModal = () => {
     switch (modalState) {
       case MODAL_STATES.PAUSED: {
@@ -43,9 +44,7 @@ function Modal() {
           <>
             <ModalBottom />
             <div className="modal-choices">
-              <button onClick={() => {
-                handleRestartGame();
-              }} id="modal-restart">YES, RESTART</button>
+              <button onClick={handleRestartGame} id="modal-restart">YES, RESTART</button>
               <button onClick={handleTogglePause} id="modal-cancel">NO, CANCEL</button>
             </div>
           </>
@@ -58,9 +57,7 @@ function Modal() {
             <ModalBottom />
             <div className="modal-choices">
               <button onClick={handleQuit} id="modal-quit">QUIT</button>
-              <button onClick={() => {
-                  handleRestartGame();
-              }} id="modal-nextround">NEXT ROUND</button>
+              <button onClick={handleRestartGame} id="modal-nextround">NEXT ROUND</button>
             </div>
           </>
         )
@@ -76,7 +73,7 @@ function Modal() {
                     <div>YES</div>
                   </button>
                 }
-                <button className="modal-choices-cancel" onClick={handleCancel}>
+                <button className="modal-choices-cancel" onClick={handleGameCancel}>
                   <div>NO</div>
                 </button>
               </div>

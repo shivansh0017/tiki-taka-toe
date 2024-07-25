@@ -15,12 +15,12 @@ function TopBar() {
   const currentTurn = useSelector((state) => state.game.currentTurn);
   const dispatch = useDispatch();
 
-  const handleRestart = () => {
-    dispatch(togglePause());
-  }
-
   const handleSettings = () => {
     dispatch(toggleSettings());
+  }
+  
+  const handleRestart = () => {
+    dispatch(togglePause());
   }
 
   return (

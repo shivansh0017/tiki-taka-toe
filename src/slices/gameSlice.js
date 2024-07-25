@@ -1,14 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
-
 import {
   BOARD_RESULTS,
   BOARD_RESULT_MODES,
   MARKS,
   MODAL_STATES,
   STATUS,
-  PAGES
+  PAGES,
+  SEARCH_PLAYER
 } from "../utilities/constants";
 import { getBoardResult } from "../utilities/helpers";
 
@@ -25,6 +24,7 @@ const initialState = {
   selectedMark: MARKS.X,
   status: STATUS.INITIAL_GAME_LOAD,
   winningLine: [],
+  searchPlayer: SEARCH_PLAYER.NO,
   winsX: 0,
   winsO: 0,
   ties: 0
@@ -70,6 +70,7 @@ export const gameSlice = createSlice({
           state.status = STATUS.GAME_OVER;
           state.modalState = MODAL_STATES.QUIT_GAME;
           state.winningLine = result.line;
+          state.searchPlayer = SEARCH_PLAYER.NO;
           console.log(result.line)
           console.log(state.winningLine);
           return;
@@ -79,6 +80,7 @@ export const gameSlice = createSlice({
           state.status = STATUS.GAME_OVER;
           state.modalState = MODAL_STATES.QUIT_GAME;
           state.winningLine = result.line;
+          state.searchPlayer = SEARCH_PLAYER.NO;
           console.log(result.line)
           console.log(state.winningLine);
           return;
@@ -87,6 +89,7 @@ export const gameSlice = createSlice({
           state.ties++;
           state.status = STATUS.GAME_OVER;
           state.modalState = MODAL_STATES.QUIT_GAME;
+          state.searchPlayer = SEARCH_PLAYER.NO;
           return;
         }
         default: {
@@ -96,11 +99,6 @@ export const gameSlice = createSlice({
       // the game isn't over, change the turn
       state.currentTurn = state.currentTurn === MARKS.X ? MARKS.O : MARKS.X;
     },
-    resetRecord: (state) => {
-      state.ties = 0;
-      state.winsO = 0;
-      state.winsX = 0;
-    },
     restartGame: (state) => {
       let result = getBoardResult(state.board, BOARD_RESULT_MODES.TYPE);
       state.board = [...Array(9).fill(' ')];
@@ -108,16 +106,19 @@ export const gameSlice = createSlice({
       state.modalState = MODAL_STATES.NONE;
       state.paused = false;
       state.status = STATUS.INITIAL_GAME_LOAD;
+      state.searchPlayer = SEARCH_PLAYER.NO;
       state.winningLine = [];
     },
     setFirstTurn: (state) => {
       if (state.selectedMark === MARKS.X) {
         state.currentTurn = MARKS.X
         state.status = STATUS.PLAYER_TURN;
+        state.searchPlayer = SEARCH_PLAYER.NO;
       }
       else {
         state.currentTurn = MARKS.O
         state.status = STATUS.PLAYER_TURN;
+        state.searchPlayer = SEARCH_PLAYER.NO;
       }
     },
     togglePause: (state) => {
@@ -125,6 +126,9 @@ export const gameSlice = createSlice({
     },
     toggleSettings: (state) => {
       state.modalState = state.modalState === MODAL_STATES.SETTINGS ? MODAL_STATES.NONE : MODAL_STATES.SETTINGS;
+    },
+    toggleSearchPlayer: (state) => {
+      state.searchPlayer = state.searchPlayer === SEARCH_PLAYER.NO ? SEARCH_PLAYER.YES : SEARCH_PLAYER.NO;
     },
     toggleSelectedMark: (state, action) => {
       if (state.selectedMark !== action.payload) {
@@ -154,11 +158,11 @@ export const gameSlice = createSlice({
 export const {
   reset,
   addMarkToBoard,
-  resetRecord,
   restartGame,
   setFirstTurn,
   togglePause,
   toggleSettings,
+  toggleSearchPlayer,
   toggleSelectedMark
 } = gameSlice.actions;
 

@@ -12,10 +12,16 @@
     --color-gray: #A8BFC9;
     --color-gray-dark: #6B8997;
     --color-gray-darkest: #3c4b52;
+    --color-green: #34A853;
+    --color-green-dark: #319F4F;
+    --color-green-darkest: #1F6532;
+    --color-purple: #3730A3;
 
     --font-family: "Outfit", sans-serif;
+    --font-family-board: "Bebas Neue", sans-serif;
 
     --font-size-body: 14px;
+    --font-size-board: 15px;
     --font-size-large: 40px;
     --font-size-medium: 24px;
     --font-size-small: 20px;

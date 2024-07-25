@@ -3,10 +3,10 @@ import Logo from '../../../assets/logo.svg'
 const LogoSquare = () => {
 
   return (
-    <div className='logo-square'>
-      <img src={Logo}></img>
-      <h1>TIKI TAKA TOE</h1>
-    </div>
+    <>
+      <img className="logo-square-image" src={Logo}></img>
+      <h1 className='logo-square-heading'>TIKI-TAKA-TOE</h1>
+    </>
   )
 }
 

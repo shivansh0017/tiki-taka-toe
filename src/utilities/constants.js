@@ -48,6 +48,11 @@ export const STATUS = {
   GAME_OVER: 'GAME_OVER'
 }
 
+export const SEARCH_PLAYER = {
+  YES : 'YES',
+  NO : 'NO'
+}
+
 export const BOARD_RESULTS = {
   X: 'X',
   O: 'O',
