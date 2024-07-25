@@ -18,7 +18,7 @@
   justify-content: center;
 }
 
-.score -amount {
+.score-amount {
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
 }

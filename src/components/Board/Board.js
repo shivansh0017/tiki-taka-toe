@@ -37,14 +37,14 @@ function Board() {
         <LogoSquare/>
       </div>
       <div className='column-categories'>
-        <div className='column-category-tile'><ColumnCategorySquare index={0}/></div>
-        <div className='column-category-tile'><ColumnCategorySquare index={1}/></div>
-        <div className='column-category-tile'><ColumnCategorySquare index={2}/></div>
+        <ColumnCategorySquare index={0}/>
+        <ColumnCategorySquare index={1}/>
+        <ColumnCategorySquare index={2}/>
       </div>
       <div className='row-categories'>
-        <div className='row-category-tile'><RowCategorySquare index={0}/></div>
-        <div className='row-category-tile'><RowCategorySquare index={1}/></div>
-        <div className='row-category-tile'><RowCategorySquare index={2}/></div>
+        <RowCategorySquare index={0}/>
+        <RowCategorySquare index={1}/>
+        <RowCategorySquare index={2}/>
       </div>
       <div className='board' onClick={(event) => handleBoardClick(event)}>
         <GameSquare cell={board[0]} index={0} key={0} />

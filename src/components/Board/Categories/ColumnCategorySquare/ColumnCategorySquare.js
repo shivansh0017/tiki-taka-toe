@@ -8,10 +8,10 @@ const ColumnCategorySquare = ({ index }) => {
   const team = currentCategories[index]
   const svgSource = TEAMS[team]
   return (
-    <>
+    <div className='column-category-tile'>
       <img className='column-category-square-image' src={svgSource} index={index}></img>
       <h1 className='column-category-square-heading'>{currentCategories[index]}</h1>
-    </>
+    </div>
   )
 }
 
