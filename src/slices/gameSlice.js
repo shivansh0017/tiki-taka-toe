@@ -9,7 +9,7 @@ import {
   PAGES,
   SEARCH_PLAYER
 } from "../utilities/constants";
-import { getBoardResult } from "../utilities/helpers";
+import { getBoardResult, getIndices, indices } from "../utilities/helpers";
 
 const initialState = {
   columnCategories: [...Array(3).fill(' ')],
@@ -25,6 +25,8 @@ const initialState = {
   status: STATUS.INITIAL_GAME_LOAD,
   winningLine: [],
   searchPlayer: SEARCH_PLAYER.NO,
+  row: 0,
+  col: 0,
   winsX: 0,
   winsO: 0,
   ties: 0
@@ -127,8 +129,11 @@ export const gameSlice = createSlice({
     toggleSettings: (state) => {
       state.modalState = state.modalState === MODAL_STATES.SETTINGS ? MODAL_STATES.NONE : MODAL_STATES.SETTINGS;
     },
-    toggleSearchPlayer: (state) => {
+    toggleSearchPlayer: (state, action) => {
       state.searchPlayer = state.searchPlayer === SEARCH_PLAYER.NO ? SEARCH_PLAYER.YES : SEARCH_PLAYER.NO;
+      let indices = getIndices(action.payload);
+      state.row = indices.row;
+      state.col = indices.col;
     },
     toggleSelectedMark: (state, action) => {
       if (state.selectedMark !== action.payload) {

@@ -45,16 +45,12 @@ function Board() {
         <RowCategorySquare index={2} />
       </div>
       {/* <div className='board' onClick={(event) => handleBoardClick(event)}> */}
-      <div className='board' onClick={() => handleSearchPlayer()}>
-        <GameSquare cell={board[0]} index={0}/>
-        <GameSquare cell={board[1]} index={1}/>
-        <GameSquare cell={board[2]} index={2}/>
-        <GameSquare cell={board[3]} index={3}/>
-        <GameSquare cell={board[4]} index={4}/>
-        <GameSquare cell={board[5]} index={5}/>
-        <GameSquare cell={board[6]} index={6}/>
-        <GameSquare cell={board[7]} index={7}/>
-        <GameSquare cell={board[8]} index={8}/>
+      <div className='board'>
+        {board.map((cell, index) => (
+          <div className={`${index}`} onClick={() => handleSearchPlayer(index)}>
+            <GameSquare cell={cell} index={index} />
+          </div>
+        ))}
       </div>
       {searchPlayer === SEARCH_PLAYER.YES && <SearchPlayer />}
     </div>

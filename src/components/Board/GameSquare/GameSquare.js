@@ -24,7 +24,7 @@ const GameSquare = ({ cell, index }) => {
 
   return (
     <button
-      className={`cell ${index%2 === 0 ? `even` : `odd`} ${winningLine.includes(index) && `winning-line-${cell}`}`}
+      className={`cell _${index} ${index%2 === 0 ? `even` : `odd`} ${winningLine.includes(index) && `winning-line-${cell}`}`}
       index={index}
       onMouseEnter={(event) => handleMouseEnter(event.target.getAttribute('index'))}
       onMouseLeave={() => handleMouseLeave()}
