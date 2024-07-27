@@ -17,6 +17,8 @@ const SearchPlayer = () => {
     const rowName = getFullName(rowCategories[row])
     const colName = getFullName(columnCategories[col])
     const [results, setResults] = useState([])
+    const rowId = useSelector((state) => state.game.currentRowId);
+    const colId = useSelector((state) => state.game.currentColId);
 
     return (
         <div className='search-player'>
@@ -26,8 +28,8 @@ const SearchPlayer = () => {
                     <p className='search-player-description-paragraph'>Find a past or present player from <span className="search-player-description-teamName">{rowName}</span> and <span className="search-player-description-teamName">{colName}</span>.</p>
                 </div>
                 <div className="search-bar-container">
-                    <SearchBar setResults={setResults} />
-                    <SearchResultsList results={results} />
+                    <SearchBar setResults={setResults}/>
+                    <SearchResultsList results={results} rowId={rowId} colId={colId}/>
                 </div>
             </div>
             <div className='search-player-cancel-container'>

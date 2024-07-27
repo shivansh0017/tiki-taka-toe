@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   BOARD_RESULTS,
   BOARD_RESULT_MODES
@@ -46,6 +47,10 @@ export const getFullName = (name) => {
     case 'TOT': return 'Tottenham';
     default: return name;
   }
+}
+
+export const checkForPlayerValidity = (event, result) => {
+  
 }
 
 export const getBoardResult = (board, mode, cpuMark = null) => {

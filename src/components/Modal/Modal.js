@@ -8,7 +8,6 @@ import {
   reset,
   togglePause,
   fetchTeams,
-  toggleSearchPlayer
 } from '../../slices/gameSlice';
 
 import { MODAL_STATES, PAGES } from '../../utilities/constants';

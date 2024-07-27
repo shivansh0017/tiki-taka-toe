@@ -12,8 +12,8 @@ import {
 import { getBoardResult, getIndices, indices } from "../utilities/helpers";
 
 const initialState = {
-  columnCategories: [...Array(3).fill(' ')],
   rowCategories: [...Array(3).fill(' ')],
+  columnCategories: [...Array(3).fill(' ')],
   loading: false,
   error: '', 
   randomCategoriesIndex: [...Array(6).fill(0)],
@@ -27,6 +27,10 @@ const initialState = {
   searchPlayer: SEARCH_PLAYER.NO,
   row: 0,
   col: 0,
+  rowIds: [...Array(3).fill(' ')],
+  colIds: [...Array(3).fill(' ')],
+  currentRowId: 0,
+  currentColId: 0,
   winsX: 0,
   winsO: 0,
   ties: 0
@@ -42,14 +46,16 @@ export const fetchTeams = createAsyncThunk('teams/fetchTeams', async () => {
     if (!data || !data.teams) {
       throw new Error('No teams found in the response.');
     }
-    const teams = data.teams;
+    const result = data.teams;
     let randomCategoriesIndex = new Set();
     while (randomCategoriesIndex.size < 6) {
-      randomCategoriesIndex.add(Math.floor(Math.random() * teams.length));
+      randomCategoriesIndex.add(Math.floor(Math.random() * result.length));
     }
-    const rowCategories1 = Array.from({ length: 3 }, (_, i) => teams[[...randomCategoriesIndex][i]].short_code);
-    const columnCategories1 = Array.from({ length: 3 }, (_, i) => teams[[...randomCategoriesIndex][i + 3]].short_code);
-    return { rowCategories1, columnCategories1 };
+    const rowCategories1 = Array.from({ length: 3 }, (_, i) => result[[...randomCategoriesIndex][i]].short_code);
+    const columnCategories1 = Array.from({ length: 3 }, (_, i) => result[[...randomCategoriesIndex][i + 3]].short_code);
+    const rowIds1 = Array.from({ length: 3 }, (_, i) => result[[...randomCategoriesIndex][i]].id);
+    const columnIds1 = Array.from({ length: 3 }, (_, i) => result[[...randomCategoriesIndex][i + 3]].id);
+    return { rowCategories1, columnCategories1, rowIds1, columnIds1 };
   } catch (error) {
     console.error('Error fetching teams:', error);
     throw error;
@@ -134,6 +140,8 @@ export const gameSlice = createSlice({
       let indices = getIndices(action.payload);
       state.row = indices.row;
       state.col = indices.col;
+      state.currentRowId = state.rowIds[state.row];
+      state.currentColId = state.colIds[state.col];
     },
     toggleSelectedMark: (state, action) => {
       if (state.selectedMark !== action.payload) {
@@ -150,6 +158,8 @@ export const gameSlice = createSlice({
       state.loading = false
       state.rowCategories = action.payload.rowCategories1
       state.columnCategories = action.payload.columnCategories1
+      state.rowIds = action.payload.rowIds1
+      state.colIds = action.payload.columnIds1
       state.error = ''
     })
     builder.addCase(fetchTeams.rejected, (state, action) => {
