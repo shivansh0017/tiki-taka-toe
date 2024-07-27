@@ -5,7 +5,7 @@ import GameSquare from '../../components/Board/GameSquare/GameSquare';
 import ColumnCategorySquare from './Categories/ColumnCategorySquare/ColumnCategorySquare';
 import RowCategorySquare from './Categories/RowCategorySquare/RowCategorySquare';
 import LogoSquare from './LogoSquare/LogoSquare';
-import SearchPlayer from '../SearchPlayer/SearchPlayer';
+import SearchPlayer from './SearchPlayer/SearchPlayer';
 import { MODAL_STATES, SEARCH_PLAYER, STATUS } from '../../utilities/constants';
 import './Board.css';
 

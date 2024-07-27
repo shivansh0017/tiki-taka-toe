@@ -144,8 +144,6 @@
 }
 
 .search-player-enter-container{
-  display: flex;
-  flex-direction: column;
   height: 67%;
   background-color: var(--color-white-light);
   padding: 15px;
@@ -156,20 +154,76 @@
 }
 
 .search-player-description{
-  height: 36px;
+  margin-bottom: 5px;
+  height: 40px;
 }
 
 .search-player-description-teamName{
   font-weight: bolder;
 }
 
+.search-bar-container{
+  width: 40%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+}
+
+.search-bar{
+ background-color: var(--color-white-light);
+ width: 100%;
+ border-radius: 10px;
+ height: 40px;
+ padding: 0px 15px;
+ box-shadow: 0px 0px 8px #ddd;
+ display: flex;
+ align-items: center;
+}
+
+.search-bar-results-list{
+  width: 100%;
+  background-color: var(--color-white-light);
+  display: flex;
+  flex-direction: column;
+  /* border-radius: 10px; */
+  margin-top: 5px;
+  max-height: 300px;
+  overflow-y: scroll;
+  z-index: 2;
+}
+
+.search-results{
+  padding: 10px 20px;
+}
+
+.search-results:hover{
+  background-color: #efefef;
+  cursor: pointer;
+}
+
+#search-icon{
+  margin-right: 10px;
+  color: black;
+}
+
 .search-player-input{
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: var(--font-size-board);
+  width: 100%;
+  outline: none;
+}
+
+.search-bar-results{
+  /* border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: var(--font-size-board);
   border-radius: 5px;
   height: 45px;
   width: 100%;
-  padding: 10px;
+  padding: 10px; */
 }
 
 .search-player-cancel-container{
