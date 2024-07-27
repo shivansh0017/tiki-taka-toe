@@ -15,16 +15,14 @@ const SearchPlayer = () => {
     const colName = getFullName(columnCategories[col])
     return (
         <div className='search-player'>
-            <div className='search-player-container'>
-                <div className='search-player-wrapper'>
+                <div className='search-player-enter-container'>
                     <h3 className='search-player-heading'>Player Search</h3>
                     <p className='search-player-description'>Find a past or present player from {rowName} and {colName}.</p>
                     <input className='search-player-input' placeholder='Search Player...'></input>
                 </div>
-                <div className='search-player-action-container'>
+                <div className='search-player-cancel-container'>
                     <button className='search-player-cancel' onClick={handleCancel}>Cancel</button>
                 </div>
-            </div>
         </div>
     )
 }

@@ -145,18 +145,13 @@
   border-radius: 0px 0px 15px 15px;
 }
 
-.search-player-container{
+.search-player-enter-container{
   display: flex;
   flex-direction: column;
   background-color: var(--color-white-light);
-}
-
-.search-player-wrapper{
-  display: flex;
-  flex-direction: column;
   padding: 15px;
-
 }
+
 .search-player-heading{
   margin: 0px;
 }
@@ -170,7 +165,7 @@
   padding: 10px;
 }
 
-.search-player-action-container{
+.search-player-cancel-container{
   display: flex;
   justify-content: center;
   padding-top: 19px;
