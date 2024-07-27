@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { togglePause, toggleSettings } from '../../../slices/gameSlice';
+import { togglePause, toggleSearchPlayer, toggleSettings } from '../../../slices/gameSlice';
 
 import { MARKS } from '../../../utilities/constants';
 
@@ -17,16 +17,18 @@ function TopBar() {
 
   const handleSettings = () => {
     dispatch(toggleSettings());
+    dispatch(toggleSearchPlayer());
   }
   
   const handleRestart = () => {
     dispatch(togglePause());
+    dispatch(toggleSearchPlayer());
   }
 
   return (
     <div className="top-bar">
       <div className="pause">
-      <button className="restart-btn" onClick={handleSettings}>
+      <button className="pause-btn" onClick={handleSettings}>
           <img src={IconPause} alt="Restart" />
         </button>
       </div>
