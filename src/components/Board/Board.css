@@ -135,8 +135,6 @@
   align-items: center;
 }
 
-
-
 .search-player{
   grid-row: 3/5;
   grid-column: 1/5;
@@ -148,12 +146,21 @@
 .search-player-enter-container{
   display: flex;
   flex-direction: column;
+  height: 67%;
   background-color: var(--color-white-light);
   padding: 15px;
 }
 
 .search-player-heading{
   margin: 0px;
+}
+
+.search-player-description{
+  height: 36px;
+}
+
+.search-player-description-teamName{
+  font-weight: bolder;
 }
 
 .search-player-input{
