@@ -26,7 +26,8 @@ function TopBar() {
   }
 
   const handleSkip = () => {
-    dispatch(toggleSkipTurn())
+    dispatch(toggleSkipTurn());
+    dispatch(toggleSearchPlayer());
   }
 
   return (
