@@ -9,7 +9,7 @@ import {
   PAGES,
   SEARCH_PLAYER
 } from "../utilities/constants";
-import { getBoardResult, getIndices, indices } from "../utilities/helpers";
+import { getBoardResult, getIndices } from "../utilities/helpers";
 
 const initialState = {
   rowCategories: [...Array(3).fill(' ')],
