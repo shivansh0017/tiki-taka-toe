@@ -68,6 +68,7 @@ export const BOARD_RESULT_MODES = {
 export const MODAL_STATES = {
   NONE: 'NONE',
   SETTINGS: 'SETTINGS',
+  SKIP: 'SKIP',
   PAUSED: 'PAUSED',
   QUIT_GAME: 'QUIT_GAME'
 }

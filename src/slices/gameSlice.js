@@ -112,6 +112,7 @@ export const gameSlice = createSlice({
     skipTurn(state){
       state.currentTurn = state.currentTurn === MARKS.X ? MARKS.O : MARKS.X;
       state.searchPlayer = SEARCH_PLAYER.NO;
+      state.modalState = MODAL_STATES.NONE;
     },
     restartGame: (state) => {
       let result = getBoardResult(state.board, BOARD_RESULT_MODES.TYPE);
@@ -137,6 +138,9 @@ export const gameSlice = createSlice({
     },
     togglePause: (state) => {
       state.modalState = state.modalState === MODAL_STATES.PAUSED ? MODAL_STATES.NONE : MODAL_STATES.PAUSED;
+    },
+    toggleSkipTurn: (state) => {
+      state.modalState = state.modalState === MODAL_STATES.SKIP ? MODAL_STATES.NONE : MODAL_STATES.SKIP;
     },
     toggleSettings: (state) => {
       state.modalState = state.modalState === MODAL_STATES.SETTINGS ? MODAL_STATES.NONE : MODAL_STATES.SETTINGS;
@@ -184,6 +188,7 @@ export const {
   restartGame,
   setFirstTurn,
   togglePause,
+  toggleSkipTurn,
   toggleSettings,
   toggleSearchPlayer,
   toggleSelectedMark

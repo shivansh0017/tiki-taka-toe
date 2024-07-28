@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { togglePause, toggleSearchPlayer, toggleSettings } from '../../../slices/gameSlice';
+import { togglePause, toggleSearchPlayer, toggleSettings, toggleSkipTurn } from '../../../slices/gameSlice';
 
 import { MARKS } from '../../../utilities/constants';
 
@@ -25,6 +25,10 @@ function TopBar() {
     dispatch(toggleSearchPlayer());
   }
 
+  const handleSkip = () => {
+    dispatch(toggleSkipTurn())
+  }
+
   return (
     <div className="top-bar">
       <div className="pause">
@@ -32,7 +36,7 @@ function TopBar() {
           <img src={IconPause} alt="Restart" />
         </button>
       </div>
-      <div className="turn-indicator">
+      <div className="turn-indicator" onClick={handleSkip}>
         <img
           src={currentTurn === MARKS.X ? IconTurnX : IconTurnO}
           alt={`Current player: ${currentTurn}`}

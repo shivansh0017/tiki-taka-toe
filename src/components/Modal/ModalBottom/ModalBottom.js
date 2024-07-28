@@ -49,6 +49,9 @@ function ModalBottom() {
   if (modalState === MODAL_STATES.PAUSED) {  // game is paused
     return <div className="modal-content-bottom-text">RESTART GAME?</div>
   }
+  if (modalState === MODAL_STATES.SKIP) {  // player want to skip turn
+    return <div className="modal-content-bottom-text">SKIP TURN?</div>
+  }
   return <></>
 }
 

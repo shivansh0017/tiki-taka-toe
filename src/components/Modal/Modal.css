@@ -103,6 +103,13 @@
     margin-right: 16px;
 }
 
+#modal-skip {
+    background: var(--color-yellow);
+    box-shadow: inset 0 -4px 0 var(--color-yellow-dark);
+    color: var(--color-cyan-dark);
+    margin-right: 16px;
+}
+
 
 #modal-nextround{
     background: var(--color-yellow);
