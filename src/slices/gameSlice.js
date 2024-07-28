@@ -109,6 +109,10 @@ export const gameSlice = createSlice({
       state.searchPlayer = SEARCH_PLAYER.NO;
       state.currentTurn = state.currentTurn === MARKS.X ? MARKS.O : MARKS.X;
     },
+    addedIncorrectPlayerToBoard(state){
+      state.currentTurn = state.currentTurn === MARKS.X ? MARKS.O : MARKS.X;
+      state.searchPlayer = SEARCH_PLAYER.NO;
+    },
     restartGame: (state) => {
       let result = getBoardResult(state.board, BOARD_RESULT_MODES.TYPE);
       state.board = [...Array(9).fill(' ')];
@@ -176,6 +180,7 @@ export const gameSlice = createSlice({
 export const {
   reset,
   addMarkToBoard,
+  addedIncorrectPlayerToBoard,
   restartGame,
   setFirstTurn,
   togglePause,
