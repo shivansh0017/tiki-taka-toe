@@ -136,7 +136,7 @@ export const gameSlice = createSlice({
       state.modalState = state.modalState === MODAL_STATES.SETTINGS ? MODAL_STATES.NONE : MODAL_STATES.SETTINGS;
     },
     toggleSearchPlayer: (state, action) => {
-      state.searchPlayer = state.searchPlayer === SEARCH_PLAYER.NO ? SEARCH_PLAYER.YES : SEARCH_PLAYER.NO;
+      state.searchPlayer = (state.searchPlayer === SEARCH_PLAYER.NO && state.modalState === MODAL_STATES.NONE) ? SEARCH_PLAYER.YES : SEARCH_PLAYER.NO;
       let indices = getIndices(action.payload);
       state.row = indices.row;
       state.col = indices.col;
