@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { checkForPlayerValidity } from "../../../utilities/helpers"
-import { addedIncorrectPlayerToBoard, addMarkToBoard } from "../../../slices/gameSlice"
+import { skipTurn, addMarkToBoard } from "../../../slices/gameSlice"
 import { MARKS } from "../../../utilities/constants"
 
 const SearchReults = ({result, boardIndex, rowId, colId}) => {
@@ -13,7 +13,7 @@ const SearchReults = ({result, boardIndex, rowId, colId}) => {
                     dispatch(addMarkToBoard(boardIndex))
                 }
                 else{
-                    dispatch(addedIncorrectPlayerToBoard())
+                    dispatch(skipTurn())
                 }
             })
             }}>

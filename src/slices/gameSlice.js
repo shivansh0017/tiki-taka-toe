@@ -109,7 +109,7 @@ export const gameSlice = createSlice({
       state.searchPlayer = SEARCH_PLAYER.NO;
       state.currentTurn = state.currentTurn === MARKS.X ? MARKS.O : MARKS.X;
     },
-    addedIncorrectPlayerToBoard(state){
+    skipTurn(state){
       state.currentTurn = state.currentTurn === MARKS.X ? MARKS.O : MARKS.X;
       state.searchPlayer = SEARCH_PLAYER.NO;
     },
@@ -180,7 +180,7 @@ export const gameSlice = createSlice({
 export const {
   reset,
   addMarkToBoard,
-  addedIncorrectPlayerToBoard,
+  skipTurn,
   restartGame,
   setFirstTurn,
   togglePause,
