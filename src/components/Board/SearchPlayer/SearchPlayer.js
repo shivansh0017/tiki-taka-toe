@@ -19,6 +19,7 @@ const SearchPlayer = () => {
     const [results, setResults] = useState([])
     const rowId = useSelector((state) => state.game.currentRowId);
     const colId = useSelector((state) => state.game.currentColId);
+    const boardIndex = useSelector((state) => state.game.index)
 
     return (
         <div className='search-player'>
@@ -29,7 +30,7 @@ const SearchPlayer = () => {
                 </div>
                 <div className="search-bar-container">
                     <SearchBar setResults={setResults}/>
-                    <SearchResultsList results={results} rowId={rowId} colId={colId}/>
+                    <SearchResultsList results={results} boardIndex={boardIndex} rowId={rowId} colId={colId}/>
                 </div>
             </div>
             <div className='search-player-cancel-container'>

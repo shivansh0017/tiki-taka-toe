@@ -1,13 +1,21 @@
+import { useDispatch, useSelector } from "react-redux"
 import { checkForPlayerValidity } from "../../../utilities/helpers"
+import { addMarkToBoard } from "../../../slices/gameSlice"
+import { MARKS } from "../../../utilities/constants"
 
-const SearchReults = ({result, rowId, colId}) => {
+const SearchReults = ({result, boardIndex, rowId, colId}) => {
+    const dispatch = useDispatch()
+    const currentMark = useSelector((state) => state.game.currentMark)
     return (
         <div className="search-results" onClick={(event) => {
-            // alert(
-            //     `You clicked on ${result.n}. The rowId is ${rowId} and the colId is ${colId}`
-            // )
-            alert(`The object is ${result}. The object name is ${result.n}. The object teams array is ${result.t}. The rowId is ${rowId} and the colId is ${colId}`)
-            checkForPlayerValidity(result, rowId, colId)
+            checkForPlayerValidity(result, rowId, colId).then((result) => {
+                if(result){
+                    dispatch(addMarkToBoard(boardIndex))
+                }
+                else{
+                    alert("Invalid move")
+                }
+            })
             }}>
             {result.n}
         </div>

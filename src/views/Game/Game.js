@@ -23,12 +23,6 @@ function Game() {
     switch (status) {
       case STATUS.INITIAL_GAME_LOAD: {
         dispatch(setFirstTurn());
-        // console.log(playerData);
-        break;
-      }
-      case STATUS.PLAYER_TURN: {
-        let oppositeMark = selectedMark === MARKS.X ? MARKS.O : MARKS.X;
-        dispatch(addMarkToBoard({ selectedMark, oppositeMark }));
         break;
       }
       default: {

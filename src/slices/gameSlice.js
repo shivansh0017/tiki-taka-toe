@@ -33,7 +33,8 @@ const initialState = {
   currentColId: 0,
   winsX: 0,
   winsO: 0,
-  ties: 0
+  ties: 0,
+  index: 0
 }
 
 export const fetchTeams = createAsyncThunk('teams/fetchTeams', async () => {
@@ -105,6 +106,7 @@ export const gameSlice = createSlice({
         }
       }
       // the game isn't over, change the turn
+      state.searchPlayer = SEARCH_PLAYER.NO;
       state.currentTurn = state.currentTurn === MARKS.X ? MARKS.O : MARKS.X;
     },
     restartGame: (state) => {
@@ -138,6 +140,7 @@ export const gameSlice = createSlice({
     toggleSearchPlayer: (state, action) => {
       state.searchPlayer = (state.searchPlayer === SEARCH_PLAYER.NO && state.modalState === MODAL_STATES.NONE) ? SEARCH_PLAYER.YES : SEARCH_PLAYER.NO;
       let indices = getIndices(action.payload);
+      state.index = action.payload;
       state.row = indices.row;
       state.col = indices.col;
       state.currentRowId = state.rowIds[state.row];

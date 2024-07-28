@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   BOARD_RESULTS,
   BOARD_RESULT_MODES
@@ -49,8 +49,13 @@ export const getFullName = (name) => {
   }
 }
 
-export const checkForPlayerValidity = (event, result) => {
-  
+export const checkForPlayerValidity = async (result, rowId, colID) => {
+  if(result.t.includes(rowId) && result.t.includes(colID)){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 
 export const getBoardResult = (board, mode, cpuMark = null) => {

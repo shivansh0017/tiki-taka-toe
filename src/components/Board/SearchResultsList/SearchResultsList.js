@@ -1,10 +1,10 @@
 import SearchReults from "../SearchResult/SearchResult"
 
-const SearchResultsList = ({ results, rowId, colId }) => {
+const SearchResultsList = ({ results, boardIndex, rowId, colId }) => {
     return (
         <div className='search-bar-results-list'>
             {results.map((result, index) => {
-                return <SearchReults result={result} key={index} rowId={rowId} colId={colId}/>
+                return <SearchReults result={result} boardIndex={boardIndex} rowId={rowId} colId={colId}/>
             })}
         </div>
     )
