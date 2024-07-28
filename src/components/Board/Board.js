@@ -18,14 +18,15 @@ function Board() {
   const searchPlayer = useSelector((state) => state.game.searchPlayer);
   const dispatch = useDispatch();
 
-  const handleBoardClick = (event) => {
-    if (status !== STATUS.PLAYER_TURN) return;  // not the player's turn
-    if (event.target.className !== 'cell' && event.target.parentElement.className !== 'board') return;  // didn't click on cell
-    let index = Number(event.target.getAttribute('index'));
-    dispatch(addMarkToBoard(index));
-  }
+  // const handleBoardClick = (event) => {
+  //   if (status !== STATUS.PLAYER_TURN) return;  // not the player's turn
+  //   if (event.target.className !== 'cell' && event.target.parentElement.className !== 'board') return;  // didn't click on cell
+  //   let index = Number(event.target.getAttribute('index'));
+  //   dispatch(addMarkToBoard(index));
+  // }
 
   const handleSearchPlayer = (index) => {
+    if(board[index] !== ' ') return;
     dispatch(toggleSearchPlayer(index));
   }
 
