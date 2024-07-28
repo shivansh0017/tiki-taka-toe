@@ -4,7 +4,7 @@
 
 Tiki-Taka-Toe is a game of tic tac toe for football fans. Play on the same device against a friend and challenge your football trivia!
 
-Play at: [LEAGUE-TAC-TOE](https://tiki-taka-toe.vercel.app/)
+Play at: [TIKI-TAKA-TOE](https://tiki-taka-toe.vercel.app/)
 
 ## How to play Tiki-Taka-Toe
 
