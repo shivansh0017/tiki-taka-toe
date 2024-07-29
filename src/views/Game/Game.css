@@ -4,3 +4,9 @@
   justify-content: center;
   width: 100%;
 }
+
+@media screen and (width < 76.8rem) {
+  .game {
+    align-items: center;
+  }
+}

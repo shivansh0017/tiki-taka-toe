@@ -4,7 +4,7 @@
 .new-game {
     width: 100%;
 
-    h1{
+    h1 {
         text-align: center;
         color: var(--color-cyan-lightest);
         font-size: var(--font-size-large);
@@ -55,19 +55,23 @@
 }
 
 .xIcon {
-    animation: rotateOutX 0.5s forwards; /* Initial animation for X icon */
+    animation: rotateOutX 0.5s forwards;
+    /* Initial animation for X icon */
 }
 
 .oIcon {
-    animation: rotateOutO 0.5s forwards; /* Initial animation for O icon */
+    animation: rotateOutO 0.5s forwards;
+    /* Initial animation for O icon */
 }
 
 .xIcon.selected {
-    animation: rotateInX 0.5s forwards; /* Animation for X icon when selected */
+    animation: rotateInX 0.5s forwards;
+    /* Animation for X icon when selected */
 }
 
 .oIcon.selected {
-    animation: rotateInO 0.5s forwards; /* Animation for O icon when selected */
+    animation: rotateInO 0.5s forwards;
+    /* Animation for O icon when selected */
 }
 
 @keyframes rotateOutX {
@@ -75,6 +79,7 @@
         transform: rotate(0deg);
         opacity: 1;
     }
+
     100% {
         transform: rotate(90deg);
         opacity: 0;
@@ -86,6 +91,7 @@
         transform: rotate(0deg);
         opacity: 1;
     }
+
     100% {
         transform: rotate(-90deg);
         opacity: 0;
@@ -97,6 +103,7 @@
         transform: rotate(-90deg);
         opacity: 0;
     }
+
     100% {
         transform: rotate(0deg);
         opacity: 1;
@@ -108,6 +115,7 @@
         transform: rotate(90deg);
         opacity: 0;
     }
+
     100% {
         transform: rotate(0deg);
         opacity: 1;
@@ -120,12 +128,12 @@
     padding: 17px 0 30px;
 }
 
-.player-selector-reminder-X{
+.player-selector-reminder-X {
     font-weight: bolder;
     color: var(--color-cyan-lightest);
 }
 
-.player-selector-reminder-O{
+.player-selector-reminder-O {
     font-weight: bolder;
     color: var(--color-yellow-light);
 }
@@ -186,20 +194,214 @@
     box-shadow: inset 0px -8px 0 var(--color-cyan-lighter);
 }
 
-#vs-player-btn:hover{
+#vs-player-btn:hover {
     background: var(--color-cyan-lighter);
     box-shadow: inset 0px -6px 0 var(--color-cyan-light);
 
 }
 
+@media screen and (width < 76.8rem) {
 
-@media screen and (min-width: 768px) {
+    .new-game {
+        width: 100%;
+
+        h1 {
+            text-align: center;
+            color: var(--color-cyan-lightest);
+            font-size: var(--font-size-large);
+        }
+
+        img {
+            height: 3.2rem;
+            object-fit: contain;
+            width: 7.2rem;
+        }
+
+        .xologo {
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .player-selector {
+        background: var(--color-cyan);
+        border-radius: 1.5rem;
+        box-shadow: inset 0px -0.8rem 0px var(--color-cyan-darkest);
+        color: var(--color-gray);
+        margin: 3.2rem 0;
+        text-align: center;
+    }
+
     .player-selector-mark {
-        font-size: var(--font-size-extrasmall);
+        font-size: var(--font-size-body);
+        font-weight: var(--font-weight-extrasmall);
+        letter-spacing: var(--font-kerning-extrasmall);
+        padding: 2.4rem 0;
+    }
+
+    .player-selector-selectedMark {
+        font-size: var(--font-size-body);
+        font-weight: var(--font-weight-body);
+        opacity: 0.75;
+        padding: 1.7rem 0;
+    }
+
+    .player-selector-selectedMarkImage {
+        width: 100%;
+        height: 5rem;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .xIcon {
+        animation: rotateOutX 0.5s forwards;
+        /* Initial animation for X icon */
+    }
+
+    .oIcon {
+        animation: rotateOutO 0.5s forwards;
+        /* Initial animation for O icon */
+    }
+
+    .xIcon.selected {
+        animation: rotateInX 0.5s forwards;
+        /* Animation for X icon when selected */
+    }
+
+    .oIcon.selected {
+        animation: rotateInO 0.5s forwards;
+        /* Animation for O icon when selected */
+    }
+
+    @keyframes rotateOutX {
+        0% {
+            transform: rotate(0deg);
+            opacity: 1;
+        }
+
+        100% {
+            transform: rotate(90deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes rotateOutO {
+        0% {
+            transform: rotate(0deg);
+            opacity: 1;
+        }
+
+        100% {
+            transform: rotate(-90deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes rotateInX {
+        0% {
+            transform: rotate(-90deg);
+            opacity: 0;
+        }
+
+        100% {
+            transform: rotate(0deg);
+            opacity: 1;
+        }
+    }
+
+    @keyframes rotateInO {
+        0% {
+            transform: rotate(90deg);
+            opacity: 0;
+        }
+
+        100% {
+            transform: rotate(0deg);
+            opacity: 1;
+        }
+    }
+
+    .player-selector-reminder {
+        font-size: var(--font-size-body);
+        font-weight: var(--font-weight-body);
+        opacity: 0.75;
+        padding: 1.7rem 0 3rem;
+    }
+
+    .player-selector-reminder-X {
+        font-weight: bolder;
+        color: var(--color-cyan-lightest);
+    }
+
+    .player-selector-reminder-O {
+        font-weight: bolder;
+        color: var(--color-yellow-light);
+    }
+
+    .player-selector-toggle {
+        background: var(--color-cyan-dark);
+        border-radius: 1rem;
+        display: flex;
+        margin: 0 2.4rem;
+        padding: 0.8rem 0;
+    }
+
+    .player-selector-toggle button {
+        background: var(--color-cyan-dark);
+        border-radius: 1rem;
+        border-style: none;
+        height: 5.4rem;
+        width: 50%;
+    }
+
+    .player-selector-toggle #btn-X {
+        margin-left: 0.8rem;
+        margin-right: 0.4rem;
+    }
+
+    .player-selector-toggle #btn-O {
+        margin-left: 0.4rem;
+        margin-right: 0.8rem;
+    }
+
+    .player-selector-toggle button:hover {
+        background: rgba(168, 191, 201, 0.05);
+    }
+
+    .player-selector-toggle button.active {
+        background: var(--color-gray);
+    }
+
+    .start-selector {
+        color: var(--color-cyan-dark);
+        display: flex;
+        flex-direction: column;
+        margin-top: 4rem;
     }
 
     .start-selector button {
-        font-size: var(--font-size-small);
-        height: 67px;
+        border-radius: 1.5rem;
+        border-style: none;
+        font-family: var(--font-family);
+        font-size: var(--font-size-extrasmall);
+        font-weight: var(--font-weight-extrasmall);
+        letter-spacing: var(--font-kerning-extrasmall);
+        padding: 1.4rem 0 2.2rem;
     }
+
+    #vs-player-btn {
+        background: var(--color-cyan-lightest);
+        box-shadow: inset 0 -0.8rem 0 var(--color-cyan-lighter);
+    }
+
+    #vs-player-btn:hover {
+        background: var(--color-cyan-lighter);
+        box-shadow: inset 0 -0.6rem 0 var(--color-cyan-light);
+
+    }
+
 }
