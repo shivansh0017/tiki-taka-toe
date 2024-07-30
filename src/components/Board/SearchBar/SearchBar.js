@@ -12,7 +12,7 @@ const SearchBar = ({setResults}) => {
                         value &&
                         user &&
                         user.n &&
-                        user.n.includes(value)
+                        user.n.toLowerCase().includes(value)
                     )
                 })
                 setResults(results)
