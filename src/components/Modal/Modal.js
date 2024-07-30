@@ -10,6 +10,7 @@ import {
   fetchTeams,
   toggleSkipTurn,
   skipTurn,
+  toggleInstructions,
 } from '../../slices/gameSlice';
 
 import { MODAL_STATES, PAGES } from '../../utilities/constants';
@@ -45,9 +46,23 @@ function Modal() {
   const handleToggleSkip = () => {
     dispatch(toggleSkipTurn());
   }
-  
+
+  const handleInstructionsCancel = () => {
+    dispatch(toggleInstructions());
+  }
+
   const selectModal = () => {
     switch (modalState) {
+      case MODAL_STATES.INSTRUCTIONS: {
+        return (
+          <>
+            <ModalBottom />
+            <div className='modal-choices'>
+              <button onClick={handleInstructionsCancel} id="instructions-cancel">CLOSE</button>
+            </div>
+          </>
+        )
+      }
       case MODAL_STATES.PAUSED: {
         return (
           <>
@@ -71,7 +86,7 @@ function Modal() {
           </>
         )
       }
-      case MODAL_STATES.SKIP:{
+      case MODAL_STATES.SKIP: {
         return (
           <>
             <ModalBottom />

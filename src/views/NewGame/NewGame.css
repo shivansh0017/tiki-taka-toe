@@ -6,8 +6,9 @@
 
     h1 {
         text-align: center;
-        color: var(--color-cyan-lightest);
-        font-size: var(--font-size-large);
+        color: var(--color-gray);
+        font-size: var(--font-size-medium);
+        font-weight: bolder;
     }
 
     img {
@@ -205,10 +206,11 @@
     .new-game {
         width: 100%;
 
-        h1 {
+           h1 {
             text-align: center;
-            color: var(--color-cyan-lightest);
-            font-size: var(--font-size-large);
+            color: var(--color-gray);
+            font-size: var(--font-size-medium);
+            font-weight: bolder;
         }
 
         img {

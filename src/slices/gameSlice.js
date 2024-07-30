@@ -136,6 +136,9 @@ export const gameSlice = createSlice({
         state.searchPlayer = SEARCH_PLAYER.NO;
       }
     },
+    toggleInstructions: (state) => {
+      state.modalState = state.modalState === MODAL_STATES.INSTRUCTIONS? MODAL_STATES.NONE : MODAL_STATES.INSTRUCTIONS
+    },
     togglePause: (state) => {
       state.modalState = state.modalState === MODAL_STATES.PAUSED ? MODAL_STATES.NONE : MODAL_STATES.PAUSED;
     },
@@ -187,6 +190,7 @@ export const {
   skipTurn,
   restartGame,
   setFirstTurn,
+  toggleInstructions,
   togglePause,
   toggleSkipTurn,
   toggleSettings,
