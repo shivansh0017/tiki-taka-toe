@@ -38,7 +38,6 @@ function Board() {
         <RowCategorySquare index={1} />
         <RowCategorySquare index={2} />
       </div>
-      {/* <div className='board' onClick={(event) => handleBoardClick(event)}> */}
       <div className='board'>
         {board.map((cell, index) => (
           <div className={`${index}`} onClick={() => handleSearchPlayer(index)}>
