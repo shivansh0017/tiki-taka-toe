@@ -12,7 +12,7 @@ const SearchBar = ({setResults}) => {
                         value &&
                         user &&
                         user.n &&
-                        user.n.includes(value)
+                        user.n.toLowerCase().includes(value)
                     )
                 })
                 setResults(results)
@@ -20,7 +20,7 @@ const SearchBar = ({setResults}) => {
     }
     const handleChange = (value) => {
         setInput(value)
-        fetchData(value)
+        fetchData(value.toLowerCase())
     }
     return (
         <div className='search-bar'>
