@@ -4,7 +4,7 @@ import {
   BOARD_RESULTS,
   BOARD_RESULT_MODES,
   MODAL_STATES,
-  STATUS 
+  STATUS
 } from '../../../utilities/constants';
 import { getBoardResult } from "../../../utilities/helpers";
 
@@ -45,6 +45,14 @@ function ModalBottom() {
         return <></>
       }
     }
+  }
+  if (modalState === MODAL_STATES.INSTRUCTIONS) {
+    return <div className="modal-content-bottom-text instructions">
+      <h3 className='modal-content-heading'>INSTRUCTIONS</h3>
+      <p className='modal-content-paragraph'>Tiki-Taka-Toe is a game of tic tac toe for football fans. Play on the same device against a friend and challenge your football trivia! A 3 x 3 square grid is lined up with teams criteria.
+        Place your marker, an X or O, in one of the squares if you can name a football player that matches the criteria across the top row and left hand side.
+        The first to get three in a row, vertically, horizontally or diagonally, is the winner.</p>
+    </div>
   }
   if (modalState === MODAL_STATES.PAUSED) {  // game is paused
     return <div className="modal-content-bottom-text">RESTART GAME?</div>
