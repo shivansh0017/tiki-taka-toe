@@ -36,7 +36,6 @@ export const MARKS = {
 }
 
 export const PLAYERS = {
-  CPU: 'CPU',
   HUMAN_ONE: 'HUMAN_ONE',
   HUMAN_TWO: 'HUMAN_TWO'
 }
